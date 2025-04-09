@@ -4,12 +4,6 @@ import logo from "../Assets/logo.png";
 import carticon from "../Assets/cart_icon.png";
 import { ShopContext } from "../context/shopcontext";
 
-const menuItems = [
-  { name: "Shop", path: "/" },
-  { name: "Men", path: "/mens" },
-  { name: "Women", path: "/womens" },
-  { name: "Kids", path: "/kids" },
-];
 
 const Navbar = () => {
      const [open, setOpen] = React.useState(false)
@@ -40,7 +34,7 @@ const Navbar = () => {
                        Login
                    </button></NavLink>
                </div>
-   
+
                <button onClick={() => open ? setOpen(false) : setOpen(true)} aria-label="Menu" className="sm:hidden">
                    {/* Menu Icon SVG */}
                    <svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
