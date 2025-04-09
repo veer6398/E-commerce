@@ -12,61 +12,59 @@ const menuItems = [
 ];
 
 const Navbar = () => {
-    const location = useLocation();
-
-    const {totalCartItems} = useContext (ShopContext);
-
-  return (
-    <nav className="flex justify-around w-full sm:p-4 p-2 shadow-sm">
-      <div className="flex items-center gap-2.5">
-        <img className="h-10 sm:h-20" src={logo} alt="logo" />
-        <p className="text-[#171717] text-2xl font-serif font-bold hidden lg:block mr-5">SHOPPER</p>
-      </div>
-
-      <ul className="flex items-center md:gap-16 sm:gap-12 gap-3 text-[#626262] md:text-3xl font-medium">
-        {menuItems.map((item) => (
-          <li
-            key={item.path}
-            className="flex flex-col items-center justify-center gap-1 cursor-pointer"
-          >
-            <NavLink
-              to={item.path}
-              className={({ isActive }) =>
-                isActive ? "text-[#ff4141]" : "hover:text-[#fb8677]"
-              }
-            >
-              {item.name}
-            </NavLink>
-            <div
-  className={`w-4/5 h-1 rounded-full bg-[#f72727] ${
-    location.pathname === item.path ? "block" : "hidden"
-  }`}
-/>
-          </li>
-        ))}
-      </ul>
-
-      <div className="flex items-center gap-11">
-        <NavLink to="/logsin">
-          <button
-            type="button"
-            className="md:w-26 w-12 md:h-12 h-6 pb-1 border rounded-full border-gray-600 font-medium md:text-2xl text-[15px] text-[#515151]
-             active:bg-[#f3f3f3] bg-white cursor-pointer hover:bg-gray-50"
-          >
-            Login
-          </button>
-        </NavLink>
-        <div className="reletive">
-        <NavLink to="/cart">
-          <img src={carticon} alt="cart-icon" />
-        </NavLink>
-        <div className="w-6 h-6 flex items-center justify-center rounded-full bg-red-600 text-white absolute top-1 right-1 lg:right-4 lg:top-7 xl:top-7 xl:right-24">
-        {totalCartItems()}
-        </div>
-        </div>
-      </div>
-    </nav>
-  );
+     const [open, setOpen] = React.useState(false)
+       const location = useLocation();
+       
+           const {totalCartItems} = useContext (ShopContext);
+       return (
+           <nav className="flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white relative transition-all">
+   
+               <a href="#">
+                   <img className="h-8 sm:h-14" src={logo} alt="logo" />
+                   <p className="text-[#171717] text-[18px] font-serif font-bold hidden lg:block mr-5">SHOPPER</p>
+               </a>
+   
+               {/* Desktop Menu */}
+               <div className="hidden mr-8 sm:flex md:text-3xl font-medium items-center gap-8 xl:gap-20">
+                   <NavLink to={'/'}>Shop</NavLink>
+                   <NavLink to={'/mens'}>Men</NavLink>
+                   <NavLink to={'/womens'}>Women</NavLink>
+                   <NavLink to={'/kids'}>Kids</NavLink>
+   
+                   <div className="relative xl:mr-20 cursor-pointer">
+                     <NavLink to={'/cart'}> <img className="h-6 sm:h-8" src={carticon} alt="cart" />
+                       <button className="absolute -top-2 -right-3 text-xs text-white bg-red-400 w-[18px] h-[18px] rounded-full">{totalCartItems()}</button></NavLink> 
+                   </div>
+                    <NavLink to="/logsin">
+                   <button className="cursor-pointer ml-5 mr-[-80px] px-8 py-2 bg-white hover:bg-[#F8F8FF] transition border text-black rounded-full">
+                       Login
+                   </button></NavLink>
+               </div>
+   
+               <button onClick={() => open ? setOpen(false) : setOpen(true)} aria-label="Menu" className="sm:hidden">
+                   {/* Menu Icon SVG */}
+                   <svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                       <rect width="21" height="1.5" rx=".75" fill="#426287" />
+                       <rect x="8" y="6" width="13" height="1.5" rx=".75" fill="#426287" />
+                       <rect x="6" y="13" width="15" height="1.5" rx=".75" fill="#426287" />
+                   </svg>
+               </button>
+   
+               {/* Mobile Menu */}
+               <div className={`${open ? 'flex' : 'hidden'} absolute top-[60px] left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm md:hidden`}>
+               <NavLink to={'/'}>Shop</NavLink>
+                   <NavLink to={'/mens'}>Men</NavLink>
+                   <NavLink to={'/womens'}>Women</NavLink>
+                   <NavLink to={'/kids'}>Kids</NavLink>
+                   <NavLink to="/logsin">
+                   <button className="cursor-pointer px-6 py-2 mt-2 bg-white hover:bg-[#F8F8FF] border transition text-black rounded-full text-sm">
+                       Login
+                   </button>
+                   </NavLink>
+               </div>
+   
+           </nav>
+       )
 };
 
 export default Navbar;
