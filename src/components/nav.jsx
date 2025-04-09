@@ -49,6 +49,7 @@ const Navbar = () => {
                    <NavLink to={'/mens'}><span onClick={()=>setOpen(false)}>Men</span></NavLink>
                    <NavLink to={'/womens'}><span onClick={()=>setOpen(false)}>Women</span></NavLink>
                    <NavLink to={'/kids'}><span onClick={()=>setOpen(false)}>Kids</span></NavLink>
+                   <NavLink to={'/cart'}> <img onClick={()=>setOpen(false)} className="h-6 sm:h-8" src={carticon} alt="cart" /></NavLink>
                    <NavLink to="/logsin">
                    <button  onClick={()=>setOpen(false)} className="cursor-pointer px-6 py-2 mt-2 bg-white hover:bg-[#F8F8FF] border transition text-black rounded-full text-sm">
                        Login
