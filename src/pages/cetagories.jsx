@@ -17,7 +17,7 @@ const Shopcategory = (props) => {
                     Sort by <img src={dropdown} alt="" />
                 </div>
             </div>
-            <div className="flex flex-wrap items-center justify-center grid-cols-2 w-[90%] md:w-[95%] gap-20 my-10 mx-5">
+            <div className="flex flex-wrap items-center justify-center w-[90%] md:w-[95%] gap-20 my-10 mx-5">
                 {allproduct.map((item, i)=>{
                     if(props.category===item.category){
                         return <Items key={i} id={item.id} name={item.name}

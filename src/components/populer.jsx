@@ -5,7 +5,7 @@ import Items from "./items";
 const Populer = () => {
 
     return(
-        <div className="ml-3 flex flex-col items-center md:pl-5 xl:pl-0 mt-24">
+        <div className=" flex flex-col items-center md:pl-5 xl:pl-0 mt-24">
             <h1 className="font-semibold lg:text-5xl text-3xl text-[#171717]">POPULER IN WOMEN</h1>
             <hr className="w-[200px] mt-3 h-1.5 bg-[#252525] rounded-[10px]" />
             <div className="mt-14 flex flex-wrap gap-7 md:gap-20 md:scale-[1.1] xl:gap-7 xl:scale-[1] md:mt-22 items-center justify-center">

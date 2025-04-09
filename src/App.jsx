@@ -12,7 +12,8 @@ import KidsBanner from './Assets/banner_kids.png'
 function App() {
 
   return (
-    <><BrowserRouter>
+    <div className=''>
+      <BrowserRouter>
      <Navbar/>
      <Routes>
       <Route path='/' element={<Shop/>}/>
@@ -26,7 +27,7 @@ function App() {
      </Routes>
      <Foot/>
      </BrowserRouter>
-    </>
+    </div>
   )
 }
 

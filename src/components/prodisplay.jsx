@@ -9,14 +9,14 @@ const Display = (props) => {
     const {addToCart} = useContext(ShopContext);
     return(
         <div className="md:flex mt-10 px-10">
-            <div className="flex flex-1 gap-4">
+            <div className="flex flex-col md:flex-row gap-5">
                 <div className="flex flex-col gap-4">
                     
                     <img className="h-40 md:block hidden" src={product.image} alt="" />
                     <img className="h-40 md:block hidden" src={product.image} alt="" />
                     <img className="h-40 md:block hidden" src={product.image} alt="" />
                 </div>    
-                <div className="w-[600px] h-24">
+                <div className="md:w-[600px] md:h-24">
                      <img src={product.image} alt="" />
                 </div>
                 <div className="flex-1 flex-col flex">
