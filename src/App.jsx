@@ -9,13 +9,15 @@ import Foot from './components/footer'
 import MenBanner from './Assets/banner_mens.png'
 import WomenBanner from './Assets/banner_women.png'
 import KidsBanner from './Assets/banner_kids.png'
+import { Toaster } from 'react-hot-toast';
 function App() {
 
   return (
     <div className=''>
       <BrowserRouter>
      <Navbar/>
-     <Routes>
+     <Toaster position="top-center" reverseOrder={false} />
+     <Routes>    
       <Route path='/' element={<Shop/>}/>
       <Route path='/mens' element={<Shopcategory banner={MenBanner} category="men"/>}/>
       <Route path='/womens' element={<Shopcategory banner={WomenBanner} category="women"/>}/>
